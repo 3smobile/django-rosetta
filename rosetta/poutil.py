@@ -91,7 +91,7 @@ def find_pos(lang, project_apps=True, django_apps=False, third_party_apps=False)
     for path in paths:
         for lang_ in langs:
             dirname = os.path.join(path, lang_, 'LC_MESSAGES')
-            for fn in ('django.po','djangojs.po','mobile.po'):
+            for fn in ('django.po','djangojs.po','mobile.po', 'dbslugs.po'):
                 filename = os.path.join(dirname, fn)
                 if os.path.isfile(filename):
                     ret.add(os.path.abspath(filename))
