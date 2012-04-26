@@ -4,6 +4,8 @@ from django.conf import settings
 from rosetta.conf import settings as rosetta_settings
 from django.core.cache import cache
 
+from farmforce import router
+
 try:
     set
 except NameError:
@@ -91,7 +93,7 @@ def find_pos(lang, project_apps=True, django_apps=False, third_party_apps=False)
     for path in paths:
         for lang_ in langs:
             dirname = os.path.join(path, lang_, 'LC_MESSAGES')
-            for fn in ('django.po','djangojs.po','mobile.po', 'dbslugs.po'):
+            for fn in ('django.po', 'djangojs.po', 'mobile.po', 'dbslugs.po', 'dbslugs_{}.po'.format(router.get_tenant())):
                 filename = os.path.join(dirname, fn)
                 if os.path.isfile(filename):
                     ret.add(os.path.abspath(filename))
