@@ -16,6 +16,9 @@ MAIN_LANGUAGE = getattr(settings, 'ROSETTA_MAIN_LANGUAGE', None)
 MESSAGES_SOURCE_LANGUAGE_CODE = getattr(settings, 'ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE', 'en')
 MESSAGES_SOURCE_LANGUAGE_NAME = getattr(settings, 'ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME', 'English')
 
+ACCESS_CONTROL_FUNCTION = getattr(
+    settings, 'ROSETTA_ACCESS_CONTROL_FUNCTION', None)
+
 
 """
 When running WSGI daemon mode, using mod_wsgi 2.0c5 or later, this setting
@@ -52,5 +55,11 @@ POFILE_WRAP_WIDTH = getattr(settings, 'ROSETTA_POFILE_WRAP_WIDTH', 78)
 # Storage class to handle temporary data storage
 STORAGE_CLASS = getattr(settings, 'ROSETTA_STORAGE_CLASS', 'rosetta.storage.CacheRosettaStorage')
 
+<<<<<<< HEAD
 # Allow overriding of the default filenames, you mostly won't need to change this
 POFILENAMES = getattr(settings, 'ROSETTA_POFILENAMES', ('django.po', 'djangojs.po'))
+=======
+ROSETTA_CACHE_NAME = getattr(settings, 'ROSETTA_CACHE_NAME', 'default'
+                             if settings.CACHES.get('rosetta', None) is None
+                             else 'rosetta')
+>>>>>>> b56350aa2da8d6a9ac8c7ff74d0f64e9d84ca096
